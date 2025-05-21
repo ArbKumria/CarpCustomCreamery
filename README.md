@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Carp Custom Creamery Flavour Update System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based application for managing and sending daily flavour updates to customers via SMS using Twilio.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Select from a predefined list of ice cream flavours
+- Add and remove flavours from the daily selection
+- Preview the message before sending
+- Send SMS updates to customers using Twilio
+- Phone number validation for US/Canada numbers
+- Real-time status updates for message sending
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- A Twilio account with:
+  - Account SID
+  - Auth Token
+  - A Twilio phone number
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup
 
-### `npm test`
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the root directory with your Twilio credentials:
+   ```
+   TWILIO_ACCOUNT_SID=your_account_sid
+   TWILIO_AUTH_TOKEN=your_auth_token
+   TWILIO_PHONE_NUMBER=your_twilio_phone_number
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running the Application
 
-### `npm run build`
+1. Start the backend server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   cd server
+   npm install
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. In a new terminal, start the frontend:
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The application will be available at [http://localhost:3000](http://localhost:3000)
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Select flavours from the dropdown menu and click "Add Flavour"
+2. Remove flavours by clicking the "Remove" button next to each flavour
+3. Enter the recipient's phone number (10 digits, no spaces or dashes)
+4. Preview the message
+5. Click "Send Flavour Update" to send the SMS
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Message Format
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The SMS will be sent in the following format:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+🍦 Today's Available Flavours:
+• FLAVOUR1
+• FLAVOUR2
+• FLAVOUR3
+```
 
-## Learn More
+## Development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project was built using:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- Node.js
+- Express
+- Twilio API
 
-### Code Splitting
+## Security Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Never commit your Twilio credentials to version control
+- Always use environment variables for sensitive information
+- The backend server handles all Twilio API calls to keep credentials secure
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Your chosen license]
